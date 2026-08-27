@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Dulzura de Alejandra — Menú de pasteles y postres</title>
+<meta name="description" content="Catálogo de pasteles y postres artesanales en Tequisquiapan, Querétaro. Tres leches, mousses, chocoflan, cheesecake y más. Pedidos por WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosa-claro:#FDF4F6;
+    --rosa:#F8E0E6;
+    --rosa-fuerte:#F4C2C2;
+    --oro:#D4AF37;
+    --oro-oscuro:#B8860B;
+    --negro:#000000;
+    --texto:#2b2226;
+    --tenue:#7a6a70;
+    --tarjeta:#FFFDFD;
+    --script:'Great Vibes', cursive;
+    --script2:'Dancing Script', cursive;
+    --sans:'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    font-weight:400;
+    color:var(--texto);
+    background:var(--rosa-claro);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- Fondo: acuarela rosa + malla de lineas doradas ---------- */
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:-2;
+    background:
+      radial-gradient(60% 45% at 12% 8%,  rgba(244,194,194,.55) 0%, rgba(244,194,194,0) 65%),
+      radial-gradient(55% 40% at 88% 22%, rgba(248,224,230,.85) 0%, rgba(248,224,230,0) 70%),
+      radial-gradient(70% 50% at 50% 100%,rgba(244,194,194,.40) 0%, rgba(244,194,194,0) 70%),
+      var(--rosa-claro);
+  }
+  body::after{
+    content:"";
+    position:fixed; inset:0; z-index:-1; opacity:.30; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg stroke='%23D4AF37' stroke-width='.9' fill='none' opacity='.7'%3E%3Cpath d='M-20 90 L440 -30'/%3E%3Cpath d='M-20 250 L440 120'/%3E%3Cpath d='M-20 430 L440 300'/%3E%3Cpath d='M60 -20 L200 440'/%3E%3Cpath d='M330 -20 L180 440'/%3E%3Cpath d='M-20 380 L300 440'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .contenedor{width:min(1100px, 92vw); margin-inline:auto}
+
+  /* ---------- Portada ---------- */
+  .portada{
+    text-align:center;
+    padding:56px 0 40px;
+    position:relative;
+  }
+  .marca{
+    width:min(340px, 80vw);
+    margin:0 auto -14px;
+  }
+  .marca img{
+    width:100%; display:block;
+    /* difumina el borde de la imagen para que se funda con el fondo rosa */
+    -webkit-mask-image:radial-gradient(ellipse 60% 58% at 50% 47%, #000 58%, transparent 84%);
+    mask-image:radial-gradient(ellipse 60% 58% at 50% 47%, #000 58%, transparent 84%);
+  }
+  .lema{
+    font-family:var(--sans);
+    font-weight:300;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--oro-oscuro);
+    margin:0 0 22px;
+  }
+  .intro{
+    max-width:620px; margin:0 auto 26px;
+    font-weight:300; color:var(--tenue);
+  }
+
+  /* separador dorado con rombo */
+  .separador{
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    margin:34px auto; max-width:340px;
+  }
+  .separador::before,.separador::after{
+    content:""; height:1px; flex:1;
+    background:linear-gradient(90deg, transparent, var(--oro), transparent);
+  }
+  .separador span{
+    width:9px; height:9px; transform:rotate(45deg);
+    background:var(--oro); display:block;
+  }
+
+  /* ---------- Botones ---------- */
+  .botones{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:12px 24px; border-radius:999px;
+    font-size:.86rem; font-weight:500; letter-spacing:.04em;
+    text-decoration:none; transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-oro{
+    background:linear-gradient(135deg, var(--oro) 0%, var(--oro-oscuro) 100%);
+    color:#fff; box-shadow:0 8px 20px rgba(184,134,11,.3);
+  }
+  .btn-linea{
+    border:1px solid var(--oro); color:var(--oro-oscuro); background:rgba(255,255,255,.6);
+  }
+  .btn svg{width:17px; height:17px; fill:currentColor; flex:none}
+
+  /* ---------- Secciones ---------- */
+  section{padding:26px 0}
+  .titulo{
+    font-family:var(--script2);
+    font-weight:700;
+    font-size:clamp(1.7rem, 5.4vw, 2.7rem);
+    color:var(--negro);
+    text-align:center;
+    text-wrap:balance;
+    margin:0 0 6px;
+  }
+  .subtitulo{
+    text-align:center; color:var(--tenue); font-weight:300;
+    font-size:.92rem; margin:0 auto 30px; max-width:560px;
+  }
+
+  /* ---------- Catalogo ---------- */
+  .catalogo{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(255px, 1fr));
+    gap:26px;
+  }
+  .postre{
+    background:var(--tarjeta);
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:16px;
+    overflow:hidden;
+    display:flex; flex-direction:column;
+    box-shadow:0 6px 22px rgba(184,134,11,.10);
+    transition:transform .22s ease, box-shadow .22s ease;
+  }
+  .postre:hover{transform:translateY(-5px); box-shadow:0 16px 34px rgba(184,134,11,.20)}
+  .foto{position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--rosa)}
+  .foto img{width:100%; height:100%; object-fit:cover; display:block}
+  .etiqueta{
+    position:absolute; top:10px; left:10px;
+    background:rgba(255,255,255,.92);
+    color:var(--oro-oscuro);
+    font-size:.62rem; letter-spacing:.09em; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px;
+    border:1px solid rgba(212,175,55,.5);
+  }
+  /* marcador para postres que aún no tienen foto propia */
+  .sin-foto{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+    height:100%;
+    background:linear-gradient(160deg, rgba(248,224,230,.9), rgba(244,194,194,.55));
+    color:var(--oro-oscuro);
+    text-align:center; padding:20px;
+  }
+  .sin-foto svg{width:52px; height:52px; opacity:.75}
+  .sin-foto span{
+    font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; font-weight:500;
+  }
+
+  .datos{padding:16px 18px 18px; display:flex; flex-direction:column; flex:1; gap:6px}
+  .nombre{
+    font-family:var(--script2); font-weight:700;
+    font-size:1.28rem; color:var(--negro);
+    line-height:1.25; margin:0;
+  }
+  .detalle{font-size:.8rem; color:var(--tenue); font-weight:300; margin:0; flex:1}
+  .precio{
+    align-self:flex-start; margin-top:8px;
+    font-weight:600; font-size:1.02rem; color:var(--oro-oscuro);
+    border:1px solid rgba(212,175,55,.55);
+    background:rgba(248,224,230,.45);
+    padding:4px 15px; border-radius:999px;
+  }
+
+  /* ---------- Bloque personalizados ---------- */
+  .personaliza{
+    background:linear-gradient(135deg, rgba(248,224,230,.9), rgba(244,194,194,.65));
+    border:1px solid rgba(212,175,55,.45);
+    border-radius:20px;
+    padding:38px 28px;
+    text-align:center;
+    margin:14px 0;
+  }
+  .personaliza h2{
+    font-family:var(--script2); font-weight:700;
+    font-size:clamp(1.6rem, 4.6vw, 2.3rem);
+    margin:0 0 10px; color:var(--negro);
+  }
+  .personaliza p{max-width:560px; margin:0 auto 22px; font-weight:300; color:#5c4d53}
+
+  /* ---------- Informacion ---------- */
+  .info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:18px;
+  }
+  .ficha{
+    background:var(--tarjeta);
+    border:1px solid rgba(212,175,55,.32);
+    border-radius:14px;
+    padding:20px 22px;
+  }
+  .ficha h3{
+    font-family:var(--sans); font-weight:600;
+    font-size:.74rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--oro-oscuro); margin:0 0 10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .ficha h3::before{content:""; width:6px; height:6px; transform:rotate(45deg); background:var(--oro); flex:none}
+  .ficha p{margin:0 0 8px; font-size:.88rem; font-weight:300}
+  .ficha p:last-child{margin-bottom:0}
+  .ficha strong{font-weight:600; color:var(--texto)}
+  .ficha ul{margin:0; padding-left:18px; font-size:.88rem; font-weight:300}
+  .ficha li{margin-bottom:4px}
+
+  /* ---------- Pie ---------- */
+  footer{
+    text-align:center;
+    padding:46px 0 110px;
+    margin-top:34px;
+    border-top:1px solid rgba(212,175,55,.35);
+  }
+  .marca-pie{
+    font-family:var(--script);
+    font-size:2.1rem; color:var(--negro); margin:0 0 4px;
+  }
+  .contactos{
+    display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+    margin:20px 0 16px;
+  }
+  .contacto{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:9px 20px; border-radius:999px;
+    border:1px solid var(--oro);
+    background:rgba(255,255,255,.7);
+    color:var(--texto); text-decoration:none;
+    font-size:.86rem; letter-spacing:.03em;
+    transition:background .18s ease;
+  }
+  .contacto:hover{background:rgba(248,224,230,.85)}
+  .contacto svg{width:18px; height:18px; fill:var(--oro-oscuro); flex:none}
+  .nota-pie{font-size:.74rem; color:var(--tenue); font-weight:300; margin:6px 0 0}
+
+  /* ---------- Boton flotante WhatsApp ---------- */
+  .flotante{
+    position:fixed; right:18px; bottom:18px; z-index:50;
+    display:inline-flex; align-items:center; gap:9px;
+    background:#25D366; color:#fff; text-decoration:none;
+    padding:13px 20px; border-radius:999px;
+    font-size:.85rem; font-weight:500;
+    box-shadow:0 10px 26px rgba(37,211,102,.42);
+    transition:transform .18s ease;
+  }
+  .flotante:hover{transform:translateY(-3px)}
+  .flotante svg{width:20px; height:20px; fill:#fff; flex:none}
+  @media (max-width:520px){
+    .flotante span{display:none}
+    .flotante{padding:15px; border-radius:50%}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<header class="portada contenedor">
+  <h1 class="marca">
+    <img src="img/emblema.png" alt="La Dulzura de Alejandra">
+  </h1>
+  <p class="lema">Pasteles &amp; postres artesanales · Tequisquiapan, Qro.</p>
+
+  <p class="intro">
+    Cada postre se prepara por encargo, con rellenos caseros y el sabor que tú elijas.
+    Elige tu favorito del catálogo y aparta tu fecha por WhatsApp.
+  </p>
+
+  <div class="botones">
+    <a class="btn btn-oro" href="https://wa.me/524141229186?text=%C2%A1Hola%20Alejandra!%20Vi%20tu%20men%C3%BA%20y%20quiero%20hacer%20un%20pedido." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2m5.8 14.03c-.25.7-1.44 1.33-2 1.42-.51.08-1.16.11-1.87-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42"/></svg>
+      Pedir por WhatsApp
+    </a>
+    <a class="btn btn-linea" href="#catalogo">Ver el catálogo</a>
+  </div>
+</header>
+
+<div class="separador contenedor"><span></span></div>
+
+<!-- ============ CATÁLOGO ============ -->
+<section id="catalogo" class="contenedor">
+  <h2 class="titulo">Catálogo de pasteles y postres</h2>
+  <p class="subtitulo">
+    Todos de 23 a 26 cm de diámetro · aprox. 1 kg · rinden de 8 a 10 rebanadas.
+  </p>
+
+  <div class="catalogo">
+
+    <article class="postre">
+      <div class="foto"><img src="img/mousse-chocolate.jpg" alt="Mousse tradicional de chocolate" loading="lazy"></div>
+      <div class="datos">
+        <h3 class="nombre">Mousse tradicional de chocolate</h3>
+        <p class="detalle">Chocolate 100% puro, textura ligera y sedosa.</p>
+        <span class="precio">$350</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto">
+        <div class="sin-foto">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 52h40V34c0-3-3-5-6-5H18c-3 0-6 2-6 5v18Z"/>
+            <path d="M12 41c3 0 3-3 6-3s3 3 6 3 3-3 6-3 3 3 6 3 3-3 6-3 3 3 6 3"/>
+            <path d="M32 29v-6"/>
+            <path d="M32 20c0-3 3-3 3-6 0-2-3-4-3-4s-3 2-3 4c0 3 3 3 3 6Z"/>
+          </svg>
+          <span>Foto próximamente</span>
+        </div>
+      </div>
+      <div class="datos">
+        <h3 class="nombre">Mousse de 4 chocolates</h3>
+        <p class="detalle">Turín, Nutella, moka y un chocolate más. Pídeme una foto por WhatsApp.</p>
+        <span class="precio">$320</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto"><img src="img/chocoflan.jpg" alt="Chocoflan o pastel imposible" loading="lazy"></div>
+      <div class="datos">
+        <h3 class="nombre">Chocoflan</h3>
+        <p class="detalle">También conocido como pastel imposible: bizcocho de chocolate y flan.</p>
+        <span class="precio">$280</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto">
+        <img src="img/red-velvet.jpg" alt="Pastel red velvet" loading="lazy">
+        <span class="etiqueta">Imagen de referencia</span>
+      </div>
+      <div class="datos">
+        <h3 class="nombre">Pastel red velvet</h3>
+        <p class="detalle">Clásico terciopelo rojo con crema de queso crema.</p>
+        <span class="precio">$380</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto"><img src="img/mousse-oreo.jpg" alt="Mousse de oreo" loading="lazy"></div>
+      <div class="datos">
+        <h3 class="nombre">Mousse de oreo</h3>
+        <p class="detalle">Cremoso, con galleta oreo en cada capa.</p>
+        <span class="precio">$280</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto"><img src="img/gelatina-mazapan.jpg" alt="Gelatina de mazapán" loading="lazy"></div>
+      <div class="datos">
+        <h3 class="nombre">Gelatina de mazapán</h3>
+        <p class="detalle">Suave, fresca y con el sabor de siempre.</p>
+        <span class="precio">$220</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto">
+        <img src="img/cheesecake-limon.jpg" alt="Cheesecake frío de limón" loading="lazy">
+        <span class="etiqueta">Imagen de referencia</span>
+      </div>
+      <div class="datos">
+        <h3 class="nombre">Cheesecake frío de limón</h3>
+        <p class="detalle">O del sabor que tú elijas: fresa, zarzamora, mango…</p>
+        <span class="precio">$280</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto">
+        <img src="img/mousse-mango.jpg" alt="Mousse de mango" loading="lazy">
+        <span class="etiqueta">Imagen de referencia</span>
+      </div>
+      <div class="datos">
+        <h3 class="nombre">Mousse de mango</h3>
+        <p class="detalle">1 kg de mousse de mango natural.</p>
+        <span class="precio">$280</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto"><img src="img/3leches-fresas-mermelada.jpg" alt="Pastel 3 leches de fresas con mermelada" loading="lazy"></div>
+      <div class="datos">
+        <h3 class="nombre">3 leches de fresa con mermelada</h3>
+        <p class="detalle">Mermelada casera de fresa y crema chantilly.</p>
+        <span class="precio">$380</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto"><img src="img/3leches-chantilly-fresas.jpg" alt="Pastel 3 leches de crema chantilly con fresas" loading="lazy"></div>
+      <div class="datos">
+        <h3 class="nombre">3 leches de chantilly con fresas</h3>
+        <p class="detalle">Crema chantilly y fresa natural encima.</p>
+        <span class="precio">$380</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto"><img src="img/3leches-fresa-oreo.jpg" alt="Pastel 3 leches de fresa y oreo" loading="lazy"></div>
+      <div class="datos">
+        <h3 class="nombre">3 leches de fresa y oreo</h3>
+        <p class="detalle">Combinación de fresa, galleta oreo y crema chantilly.</p>
+        <span class="precio">$380</span>
+      </div>
+    </article>
+
+    <article class="postre">
+      <div class="foto"><img src="img/3leches-durazno-mango.jpg" alt="Pastel 3 leches de durazno y mango" loading="lazy"></div>
+      <div class="datos">
+        <h3 class="nombre">3 leches de durazno y mango</h3>
+        <p class="detalle">Fruta de temporada con crema chantilly.</p>
+        <span class="precio">$380</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ PERSONALIZADOS ============ -->
+<section class="contenedor">
+  <div class="personaliza">
+    <h2>¿No encuentras el postre de tu preferencia?</h2>
+    <p>
+      ¡No te preocupes! Estos son todos los que he preparado hasta ahora, pero si quieres
+      otro sabor en particular también te lo cotizo. Escríbeme al privado y lo hacemos a tu gusto.
+    </p>
+    <a class="btn btn-oro" href="https://wa.me/524141229186?text=Hola%20Alejandra%2C%20quiero%20cotizar%20un%20postre%20personalizado." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2m5.8 14.03c-.25.7-1.44 1.33-2 1.42-.51.08-1.16.11-1.87-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42"/></svg>
+      Cotizar mi postre
+    </a>
+  </div>
+</section>
+
+<div class="separador contenedor"><span></span></div>
+
+<!-- ============ INFORMACIÓN ============ -->
+<section class="contenedor">
+  <h2 class="titulo">Cómo hacer tu pedido</h2>
+  <p class="subtitulo">Todo lo que necesitas saber antes de apartar tu fecha.</p>
+
+  <div class="info">
+
+    <div class="ficha">
+      <h3>Tamaño y porciones</h3>
+      <p>De <strong>23 a 26 cm</strong> de diámetro, aproximadamente <strong>1 kg</strong>.</p>
+      <p>Rinden de <strong>8 a 10 rebanadas</strong>.</p>
+    </div>
+
+    <div class="ficha">
+      <h3>Rellenos disponibles</h3>
+      <ul>
+        <li>Crema pastelera</li>
+        <li>Mermeladas caseras</li>
+        <li>Crema de chocolate</li>
+        <li>Crema de queso crema</li>
+      </ul>
+    </div>
+
+    <div class="ficha">
+      <h3>Anticipación</h3>
+      <p>Haz tu pedido con <strong>3 días de anticipación</strong>.</p>
+      <p>¿Pedido urgente? Depende del postre y de si hay lugar en la lista del día. Pregúntame y lo checamos.</p>
+    </div>
+
+    <div class="ficha">
+      <h3>Datos que necesito</h3>
+      <ul>
+        <li>A nombre de quién es el pedido</li>
+        <li>Número de teléfono</li>
+        <li>Fecha del evento</li>
+        <li>Postre y sabor que quieres</li>
+      </ul>
+    </div>
+
+    <div class="ficha">
+      <h3>Anticipo y pagos</h3>
+      <p>Aparta tu pedido con <strong>$50 pesos</strong> de anticipo.</p>
+      <p>Se acepta <strong>efectivo</strong> y <strong>transferencia</strong>.</p>
+    </div>
+
+    <div class="ficha">
+      <h3>Entregas</h3>
+      <p><strong>Tequisquiapan:</strong> pasas por tu pedido al local Tortas La Michoacana, sobre la carretera hacia Ezequiel Montes, a un lado de Pollos a la Leña.</p>
+      <p><strong>San Juan del Río:</strong> entrega en punto público (Plaza Paseo Central, Plaza San Juan, etc.) con costo de <strong>$35</strong>, sujeto a disponibilidad.</p>
+    </div>
+
+    <div class="ficha">
+      <h3>Disponibilidad por día</h3>
+      <p>Por espacio y tiempo, preparo <strong>máximo 2 postres al día</strong> (por ejemplo, 1 pastel y 1 mousse).</p>
+      <p>Por eso te recomiendo apartar tu fecha con tiempo.</p>
+    </div>
+
+    <div class="ficha">
+      <h3>Zona de venta</h3>
+      <p><strong>Tequisquiapan, Querétaro</strong>, con entregas a San Juan del Río.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PIE ============ -->
+<footer class="contenedor">
+  <p class="marca-pie">La Dulzura de Alejandra</p>
+  <p class="lema">Hecho en casa, con todo el cariño</p>
+
+  <div class="contactos">
+    <a class="contacto" href="https://wa.me/524141229186" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2m5.8 14.03c-.25.7-1.44 1.33-2 1.42-.51.08-1.16.11-1.87-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42"/></svg>
+      414 122 9186
+    </a>
+    <a class="contacto" href="https://instagram.com/honey_moon_bae_k" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44"/></svg>
+      @honey_moon_bae_k
+    </a>
+  </div>
+
+  <p class="nota-pie">Precios sujetos a cambio sin previo aviso · Tequisquiapan, Querétaro</p>
+</footer>
+
+<a class="flotante" href="https://wa.me/524141229186?text=%C2%A1Hola%20Alejandra!%20Quiero%20hacer%20un%20pedido." target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2m5.8 14.03c-.25.7-1.44 1.33-2 1.42-.51.08-1.16.11-1.87-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42"/></svg>
+  <span>Pedir por WhatsApp</span>
+</a>
+
+</body>
+</html>
